@@ -1,4 +1,52 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleButtonAction } from '../Redux/redux.actions';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import './App.css';
 import { Grid, Divider, Header, Image } from 'semantic-ui-react';
 
