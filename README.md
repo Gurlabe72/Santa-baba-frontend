@@ -1,3 +1,51 @@
+Welcome to SantaBaba! 
+
+This app was to help parents who use Santa Claus as a disciplinary tool, into the future... 
+This app allows parents to keep track of all the good and bad things their kids do. The idea is that is children will be able to write their letter to Santa as to what they want for Christmas. The intention is for parents to secretly be “Santa” 
+
+Users of this App.
+
+The users of this app will be strictly confined to individual families. Parents will register their family and the person who can view the posts and material will only be family. 
+
+Schema
+
+This schema comprises of 2 One-to-Many relationships that is joined together by 1 Many-to-Many relationships. See diagram below. 
+
+(Insert relational diagram here )
+
+Technologies Used
+
+MERN Stack Flow:
+	MONGO
+	EXPRESS 
+	REACT 
+	NODE 
+
+In the Front-End:
+
+Implementation:
+
+(Insert Front-end logos here)
+React Redux
+
+In the Back-end:
+
+Implementation:
+
+MongoDb
+ExpressJs
+Json Web  Token 
+Node JS
+
+A Look inside the App: 
+(insert screen shots here) 
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
