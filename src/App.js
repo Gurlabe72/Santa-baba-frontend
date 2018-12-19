@@ -1,88 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toggleButtonAction } from '../Redux/redux.actions';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { toggleButtonAction } from './Redux/redux.actions';
 import './App.css';
-import { Grid, Divider, Header, Image } from 'semantic-ui-react';
+
+import { Grid, Header, Image, Container } from 'semantic-ui-react';
 
 import Navbar from './component/Navbar.jsx';
 
 import NaughtyList from './component/NaughtyList.jsx';
 import NiceList from './component/NiceList.jsx';
 class App extends Component {
-  state = {
-    email: 'e',
-    name: 'n'
-  }
   render() {
+    const { toggleButtonAction } = this.props;
     return (
-      <div className="App">
-<h1> SantaBaba</h1>
-<Navbar />
-<Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyar7sCU9FonoYYLBw_CILNam_qxXI5DXbMB8nRtiwHZ3EckWV" className="App-logo" alt="logo" />
+      <Container className="App">
+        <h1> SantaBaba</h1>
+        <Navbar />
+        {/* <Image fluid src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyar7sCU9FonoYYLBw_CILNam_qxXI5DXbMB8nRtiwHZ3EckWV"  /> */}
         <Header as='h2' icon testAlign='center'>
-      
-          </Header> 
+        </Header>
         <Grid>
           <Grid.Row>
-          <Grid.Column width={6}>
+            <Grid.Column width={6}>
               <NaughtyList />
-          </Grid.Column>
-          
-          <Grid.Column width={6}>
+            </Grid.Column>
+            <Grid.Column width={6}>
               <NiceList />
-          </Grid.Column>    
+            </Grid.Column>
           </Grid.Row>
-        <Divider vertical>Gauge Here</Divider>
+          <p>{toggleButtonAction ? 'I am set to True' : 'I am set to false'} </p>
         </Grid>
-      </div>
+      </ Container>
     );
   }
 }
 
-export default App;
+const mapStatetoProps = (state) => ({
+  ...state.app
+})
+
+export default connect(mapStatetoProps, { toggleButtonAction }
+)(App);
