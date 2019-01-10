@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { toggleButtonAction } from './Redux/redux.actions';
 import './App.css';
 
-import { Grid, Header, Image, Container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 
 import Navbar from './component/Navbar.jsx';
+import Locations from './component/Locations'
 
 class App extends Component {
   render() {
-    const { toggleButtonAction } = this.props;
+
     return (
-      <Container className="App">
-        <h1> Trucker</h1>
-        <Navbar />
-        <p>{toggleButtonAction ? 'I am set to True' : 'I am set to false'} </p>
-      </ Container>
+      <Router>
+        <Container className="App">
+          <Navbar />
+          <Route path='/locations' component={Locations} />
+        </ Container>
+      </Router>
     );
   }
 }
 
-const mapStatetoProps = (state) => ({
-  ...state.app
-})
-
-export default connect(mapStatetoProps, { toggleButtonAction }
-)(App);
+export default App;

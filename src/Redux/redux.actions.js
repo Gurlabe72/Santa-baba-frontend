@@ -1,10 +1,18 @@
-export const toggleButtonAction = () => {
+export const getLocations = () => {
+    return async dispatch => {
+        try {
+            let response = await fetch('http://localhost:3000/location')
+            let locations = await response.json()
+            dispatch({
+                type: 'GET_LOCATIONS_SUCCESS',
+                payload: locations,
 
-    return {
-        type: 'TOGGLE_BUTTON_ACTION',
-        payload: {
-            id: 1,
-            name: 'Gurlabe'
+            })
+        }
+        catch (err) {
+            console.log(err)
         }
     }
+
+
 }

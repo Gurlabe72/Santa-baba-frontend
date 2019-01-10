@@ -1,15 +1,13 @@
 const initialState = {
-    toggleButton: false,
-    user: {},
+    locations: [],
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'TOGGLE_BUTTON_ACTION':
+        case 'GET_LOCATIONS_SUCCESS':
             return {
                 ...state,
-                toggleButton: !state.toggleButton,
-                user: action.payload
+                locations: action.payload
             }
         default:
             return state;
