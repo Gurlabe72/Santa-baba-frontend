@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class Locations extends Component {
+class TruckStops extends Component {
     render() {
-        return !this.props.locations ? null : (
+        return !this.props.truckStops ? null : (
+
             <div>
-                {this.props.locations.map(
-                    location => {
+                {this.props.truckStops.map(
+                    truckStop => {
                         return (
                             <div>
-                                {location.location}
+                                {truckStop.truckStop}
                             </div>
                         )
                     }
@@ -21,7 +22,7 @@ class Locations extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        locations: state.app.locations
+        truckStops: state.app.truckStops
     }
 }
-export default connect(mapStateToProps, null)(Locations)
+export default connect(mapStateToProps, null)(TruckStops)

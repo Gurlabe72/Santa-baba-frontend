@@ -13,6 +13,5 @@ export const getLocations = () => {
             console.log(err)
         }
     }
-
-
 }
+

@@ -6,16 +6,21 @@ import './App.css';
 import { Container } from 'semantic-ui-react';
 
 import Navbar from './component/Navbar.jsx';
-import Locations from './component/Locations'
+import Locations from './component/Locations';
+import TruckStops from './component/TruckStops';
+import ShippingDocks from './component/ShippingDock';
 
 class App extends Component {
   render() {
-
     return (
       <Router>
         <Container className="App">
           <Navbar />
+
           <Route path='/locations' component={Locations} />
+          <Route path='/truckStops' component={TruckStops} />
+          <Route path='/shippingDocks' component={ShippingDocks} />
+
         </ Container>
       </Router>
     );

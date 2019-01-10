@@ -7,10 +7,11 @@ import './index.css';
 import App from './App';
 import store from './Redux/store'
 import * as serviceWorker from './serviceWorker';
-import { getLocations } from './Redux/redux.actions';
+import { getLocations, getTruckStops } from './Redux/actions/locations.actions';
 
 const newStore = store();
 newStore.dispatch(getLocations());
+newStore.dispatch(getTruckStops())
 
 ReactDOM.render(
 
