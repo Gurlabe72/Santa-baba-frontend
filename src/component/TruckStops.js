@@ -7,7 +7,7 @@ class TruckStops extends Component {
         return !this.props.truckStops ? null : (
 
             <div>
-                {this.props.truckStops.map(
+                {this.props.truckStops.locations.map(
                     truckStop => {
                         return (
                             <div>
@@ -22,7 +22,7 @@ class TruckStops extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        truckStops: state.app.truckStops
+        truckStops: state.truckStops
     }
 }
 export default connect(mapStateToProps, null)(TruckStops)

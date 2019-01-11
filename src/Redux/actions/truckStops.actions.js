@@ -1,11 +1,11 @@
 export const getTruckStops = () => {
     return async dispatch => {
         try {
-            let response = await fetch('http://localhost:3000/truckStop')
-            let truckStop = await response.json()
+            let response = await fetch('http://localhost:3333/truckStop')
+            let truckStops = await response.json()
             dispatch({
                 type: 'GET_TRUCKSTOPS_SUCCESS',
-                payload: truckStop,
+                payload: truckStops,
             })
         }
         catch (err) {

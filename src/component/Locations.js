@@ -6,7 +6,7 @@ class Locations extends Component {
     render() {
         return !this.props.locations ? null : (
             <div>
-                {this.props.locations.map(
+                {this.props.locations.locations.map(
                     location => {
                         return (
                             <div>
@@ -21,7 +21,7 @@ class Locations extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        locations: state.app.locations
+        locations: state.locations
     }
 }
 export default connect(mapStateToProps, null)(Locations)

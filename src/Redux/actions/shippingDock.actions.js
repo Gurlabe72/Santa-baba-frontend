@@ -1,11 +1,11 @@
-export const getOnTheRoads = () => {
+export const getShippingDocks = () => {
     return async dispatch => {
         try {
-            let response = await fetch('http://localhost:3000/onTheRoad')
-            let onTheRoads = await response.json()
+            let response = await fetch('http://localhost:3333/shippingDock')
+            let shippingDocks = await response.json()
             dispatch({
-                type: 'GET_ONTHEROADS_SUCCESS',
-                payload: onTheRoads,
+                type: 'GET_SHIPPINGDOCKS_SUCCESS',
+                payload: shippingDocks,
             })
         }
         catch (err) {

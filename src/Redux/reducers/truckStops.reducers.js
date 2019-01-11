@@ -1,3 +1,8 @@
+const initialState = {
+    truckStops: [],
+
+};
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'GET_TRUCKSTOPS_SUCCESS':
