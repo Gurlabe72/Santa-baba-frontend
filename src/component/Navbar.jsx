@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Button, Icon, Menu, Sidebar } from 'semantic-ui-react'
 
 class Navbar extends Component {
 state = { visible: false }
