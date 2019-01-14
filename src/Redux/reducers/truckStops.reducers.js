@@ -1,5 +1,5 @@
 const initialState = {
-    truckStops: [],
+    truckStops: []
 
 };
 

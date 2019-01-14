@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class TruckStops extends Component {
     render() {
+        console.log(this.props)
         return !this.props.truckStops ? null : (
 
             <div>

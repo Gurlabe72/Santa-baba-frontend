@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 // import { connect } from 'react-redux';
 import './App.css';
 
@@ -17,10 +17,12 @@ class App extends Component {
       <Router>
         <Container className="App">
           <Navbar />
+          <Route exact path='/' component={() => <Redirect to='/locations' />} />
           <Route path='/onTheRoads' component={OnTheRoad} />
           <Route path='/locations' component={Locations} />
           <Route path='/truckStops' component={TruckStops} />
           <Route path='/shippingDocks' component={ShippingDocks} />
+
 
 
         </ Container>
