@@ -10,6 +10,7 @@ import OnTheRoad from './component/OnTheRoad';
 import Locations from './component/Locations';
 import TruckStops from './component/TruckStops';
 import ShippingDocks from './component/ShippingDock';
+import Register from './component/Register';
 
 class App extends Component {
   render() {
