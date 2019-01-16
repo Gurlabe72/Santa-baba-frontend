@@ -10,6 +10,12 @@ export default (state = initialState, action) => {
                 ...state,
                 locations: action.payload
             }
+        case 'CREATE_LOCATIONS_SUCCESS':
+            return {
+                ...state,
+                locations: [...state.locations, action.payload]
+            }
+
         default:
             return state;
     }

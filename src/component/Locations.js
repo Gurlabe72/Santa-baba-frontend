@@ -1,98 +1,90 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Button, Card } from 'semantic-ui-react';
+import { bindActionCreators } from "redux";
+import { Form, Button, Card, Icon, Container, Dropdown } from 'semantic-ui-react';
+import { createLocations } from '../Redux/actions/locations.actions';
 
 
 class Locations extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: {
-                firstName: "",
-                lastName: "",
-                email: "",
-                password: "",
-                dateOfBirth: ""
-            },
+            location: "",
+            postType: "",
             errors: {},
             loading: false
         }
     }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        let { location, postType } = this.state
+        let date = new Date()
+        let payload = {
+            location, postType, date
+        }
+        this.props.createLocations(payload)
+    }
 
     render() {
-
+        console.log(this.props.locations)
         const { data } = this.state;
-
+        const options = [
+            {
+                text: 'Truck Stop',
+                value: 'Truck Stop',
+            },
+            {
+                text: 'On the Road',
+                value: 'On the Road',
+            },
+            {
+                text: 'Shipping Dock',
+                value: 'Shipping Dock',
+            },
+        ]
         return !this.props.locations ? null : (
-            <div>
-                {
+            <Container>
+                <Card.Group> {
                     this.props.locations.locations.map(
                         location => {
                             return (
-                                <div>
-                                    {location.location}
-                                </div>
+                                <Card color={location.postType === 'this is a postt' ? 'red' : 'blue'} fluid raised link>
+                                    <Card.Content header={location.location} />
+                                    <Card.Content description={location.postType} />
+                                    <Card.Content extra>
+                                        <Icon name='user' />
+                                        4 Friends
+                                        </Card.Content>
+                                </Card>
                             )
                         }
                     )
                 }
-                <Card>
+                </Card.Group>
+
+                < Card >
                     < Card.Content >
-                        <Form>
+                        <Form onSubmit={this.handleSubmit}>
                             <Form.Field>
-                                <label htmlFor="firstname">First Name</label>
+                                <label htmlFor="location">Location</label>
                                 <input
-                                    placeholder="First Name"
-                                    name="firstName"
-                                    value={data.firstName}
-                                    onChange={this.onInputChange} />
+                                    placeholder="Location"
+                                    name="location"
+                                    onChange={(e) => this.setState({ location: e.target.value })} />
                             </Form.Field>
 
                             <Form.Field>
-                                <label htmlFor="lastName">Last Name</label>
-                                <input
-                                    placeholder="lastName Name"
-                                    name="lastName"
-                                    value={data.lastName}
-                                    onChange={this.onInputChange} />
-                            </Form.Field>
-                            <Form.Field>
+                                <Dropdown placeholder='What is it?' fluid selection options={options} onChange={(e) => this.setState({ postType: e.target.innerText })} />
+                            </Form.Field >
 
-                            </Form.Field>
-                            <label htmlFor="email">email</label>
-                            <input
-                                placeholder="email"
-                                name="email"
-                                value={data.email}
-                                onChange={this.onInputChange} />
-                            <Form.Field>
-
-                            </Form.Field>
-                            <label htmlFor="Password">Password</label>
-                            <input
-                                placeholder="password"
-                                name="password"
-                                value={data.password}
-                                onChange={this.onInputChange} />
-                            <Form.Field>
-
-                            </Form.Field>
-                            <label htmlFor="Date of Birth">Date of birth</label>
-                            <input
-                                placeholder="Date of Birth"
-                                name="dateOfBirth"
-                                name="date"
-                                value={data.dateOfBirth}
-                                onChange={this.onInputChange} />
-                            <Form.Field>
-
-                            </Form.Field>
                             <Button type='submit'>Submit</Button>
                         </Form>
                     </Card.Content >
                 </Card >
-            </div >
+            </Container >
         )
+
+
     }
 }
 const mapStateToProps = (state) => {
@@ -100,4 +92,9 @@ const mapStateToProps = (state) => {
         locations: state.locations
     }
 }
-export default connect(mapStateToProps, null)(Locations)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createLocations: bindActionCreators(createLocations, dispatch)
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Locations)
