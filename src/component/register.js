@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { Form, Button } from 'semantic-ui-react';
 
 class Register extends Component {
@@ -73,9 +74,21 @@ class Register extends Component {
                     </Form.Field>
                     <Button type='submit'>Submit</Button>
                 </Form>
+=======
+
+class register extends Component {
+    render() {
+        return (
+            <div>
+
+>>>>>>> f99957ae40cda58555fa8182004c5f9baa084bf1
             </div>
         )
     }
 }
 
+<<<<<<< HEAD
 export default Register
+=======
+export default register
+>>>>>>> f99957ae40cda58555fa8182004c5f9baa084bf1
