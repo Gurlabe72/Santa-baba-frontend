@@ -9,15 +9,10 @@ import store from './Redux/store'
 import * as serviceWorker from './serviceWorker';
 //all this below can be ONE import i think 
 import { getLocations } from './Redux/actions/locations.actions';
-import { getTruckStops } from './Redux/actions/truckStops.actions';
-import { getShippingDocks } from './Redux/actions/shippingDock.actions';
-import { getOnTheRoads } from './Redux/actions/onTheRoad.actions';
+
 
 const newStore = store();
 newStore.dispatch(getLocations());
-newStore.dispatch(getTruckStops());
-newStore.dispatch(getShippingDocks());
-newStore.dispatch(getOnTheRoads())
 
 ReactDOM.render(
 
