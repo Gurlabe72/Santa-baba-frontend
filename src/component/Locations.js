@@ -15,7 +15,14 @@ class Locations extends Component {
                     this.props.locations.locations.map(
                         (location, i) => {
                             return (
-                                <Card key={i} color={location.postType === 'this is a postt' ? 'red' : 'blue'} fluid raised link>
+                                <Card key={i} color={(() => {
+                                    switch (location.postType) {
+                                        case "On the Road": return "red";
+                                        case "Shipping Dock": return "blue";
+                                        case "Truck Stop": return "yellow";
+                                        default: return "#FFFFFF";
+                                    }
+                                })()} fluid raised link>
                                     <Card.Content header={location.location} />
                                     <Card.Content description={location.postType} />
                                     <Card.Content extra>
