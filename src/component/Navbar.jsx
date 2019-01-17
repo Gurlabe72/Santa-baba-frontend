@@ -1,54 +1,20 @@
 import React, { Component } from 'react'
-import { Button, Icon, Menu, Sidebar } from 'semantic-ui-react'
-
+import { Menu } from 'semantic-ui-react'
 class Navbar extends Component {
-    state = { visible: false }
-
-    handleHideClick = () => this.setState({ visible: false })
-    handleShowClick = () => this.setState({ visible: true })
-    handleSidebarHide = () => this.setState({ visible: !this.state.visible })
-
-
     render() {
-        const { visible } = this.state
         return (
-            <div>
-                <Button.Group>
 
-                    <Button disabled={visible} onClick={this.handleShowClick} >
-                        Menu
-        </Button>
-                </Button.Group>
+            <Menu inverted>
+                <Menu.Item name='home' as='a' href='/' />
+                <Menu.Item
+                    name='forms' as='a' href='/'
+                />
+                <Menu.Item
+                    name='friends'
+                />
+            </Menu>
 
-                <Sidebar
-                    as={Menu}
-                    animation='overlay'
-                    icon='labeled'
-                    inverted
-                    onHide={this.handleSidebarHide}
-                    vertical
-                    visible={visible}
-                    width='thin'
-                >
-                    <Menu.Item as='Location'>
-                        <Icon name='map' />
-                        Home
-        </Menu.Item>
-                    <Menu.Item as='users'>
-                        <Icon name='login' />
-                        Login
-        </Menu.Item>
-                    <Menu.Item as='a'>
-                        <Icon name='camera' />
-                        Channels
-        </Menu.Item>
-                </Sidebar>
-
-
-
-            </div>
         )
     }
 }
-
-export default Navbar;
+export default Navbar
